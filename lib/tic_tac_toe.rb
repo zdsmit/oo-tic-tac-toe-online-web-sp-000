@@ -23,13 +23,13 @@ class TicTacToe
   end
 
   def play(board)
-  turn(board) until over?(board)
-  if won?(board)
-    puts "Congratulations #{winner(board)}!"
-  elsif draw?(board)
-    puts "Cat's Game!"
+    turn(board) until over?(board)
+    if won?(board)
+      puts "Congratulations #{winner(board)}!"
+    elsif draw?(board)
+      puts "Cat's Game!"
+    end
   end
-end
 
   def input_to_index(user_input)
     (user_input.to_i) - 1
