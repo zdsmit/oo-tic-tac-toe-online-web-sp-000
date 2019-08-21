@@ -22,6 +22,19 @@ class TicTacToe
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
   end
 
+  def turn(board)
+    puts "Please enter 1-9:"
+    user_input = gets.strip
+    index = input_to_index(user_input)
+    index
+    if valid_move?(board, index) && !position_taken?(board, index)
+      move(board, index, (current_player(board)))
+    else
+      turn(board)
+    end
+    display_board(board)
+  end
+
   def play(board)
     turn(board) until over?(board)
     if won?(board)
@@ -45,19 +58,6 @@ class TicTacToe
 
   def valid_move?(board, index)
     index.between?(0,8) && !position_taken?(board, index)
-  end
-
-  def turn(board)
-    puts "Please enter 1-9:"
-    user_input = gets.strip
-    index = input_to_index(user_input)
-    index
-    if valid_move?(board, index) && !position_taken?(board, index)
-      move(board, index, (current_player(board)))
-    else
-      turn(board)
-    end
-    display_board(board)
   end
 
   def turn_count(board)
