@@ -86,13 +86,13 @@ class TicTacToe
   end
 
   def draw?
-    if full?(@board) && !won?(@board)
+    if full? && !won?
       true
     end
   end
 
   def over?
-    if draw?(@board) || full?(@board) || won?(@board)
+    if draw? || full? || won?
       true
     end
   end
@@ -103,7 +103,7 @@ class TicTacToe
         return "X"
       elsif @board[combination[0]] == "O" && @board[combination[1]] == "O" && @board[combination[2]] == "O"
         return "O"
-      elsif draw?(@board)
+      elsif draw?
         return "nil"
       end
     end
